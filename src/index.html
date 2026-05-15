@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:"
+    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PackyAPI Balance</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app" data-shell data-status="idle">
+      <section class="hero">
+        <div class="brand">
+          <div class="brand-mark">P</div>
+          <div>
+            <p class="eyebrow">PackyAPI</p>
+            <h1>余额监控</h1>
+          </div>
+        </div>
+        <button class="icon-button" type="button" data-refresh title="刷新余额" aria-label="刷新余额">
+          <span>↻</span>
+        </button>
+      </section>
+
+      <section class="balance-panel" aria-live="polite">
+        <p class="panel-label">当前余额</p>
+        <div class="balance-value" data-balance-value>--</div>
+        <p class="balance-meta" data-balance-meta>尚未同步</p>
+      </section>
+
+      <section class="status-row">
+        <span class="status-dot" data-status-dot data-status="idle"></span>
+        <div>
+          <p class="status-title" data-status-text>等待首次刷新</p>
+          <p class="source" data-source>https://www.packyapi.com</p>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button class="primary-button" type="button" data-login>
+          登录 / 授权
+        </button>
+        <button class="secondary-button" type="button" data-site>
+          打开网页
+        </button>
+      </section>
+
+      <section class="setting-row">
+        <div>
+          <p class="setting-title">开机自启动</p>
+          <p class="setting-copy">随 Windows 登录后自动运行</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" data-autostart>
+          <span></span>
+        </label>
+      </section>
+    </main>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
