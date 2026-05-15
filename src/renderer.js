@@ -9,6 +9,8 @@ const refreshButton = document.querySelector("[data-refresh]");
 const loginButton = document.querySelector("[data-login]");
 const siteButton = document.querySelector("[data-site]");
 const autostartToggle = document.querySelector("[data-autostart]");
+const minimizeButton = document.querySelector("[data-window-minimize]");
+const closeButton = document.querySelector("[data-window-close]");
 const shell = document.querySelector("[data-shell]");
 
 function formatTime(value) {
@@ -51,6 +53,14 @@ loginButton.addEventListener("click", () => {
 
 siteButton.addEventListener("click", () => {
   window.packyBalance.openSite();
+});
+
+minimizeButton.addEventListener("click", () => {
+  window.packyBalance.minimizeWindow();
+});
+
+closeButton.addEventListener("click", () => {
+  window.packyBalance.closeWindow();
 });
 
 autostartToggle.addEventListener("change", async () => {

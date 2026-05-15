@@ -55,7 +55,10 @@ function createMainWindow() {
     height: 560,
     minWidth: 390,
     minHeight: 500,
-    backgroundColor: "#f6f7f9",
+    backgroundColor: "#00000000",
+    frame: false,
+    transparent: true,
+    hasShadow: true,
     title: "PackyAPI Balance",
     autoHideMenuBar: true,
     webPreferences: getWebPreferences({
@@ -212,6 +215,18 @@ ipcMain.handle("balance:open-login", () => {
 ipcMain.handle("balance:open-site", () => shell.openExternal(WALLET_URL));
 ipcMain.handle("autostart:get", () => getAutoStartState());
 ipcMain.handle("autostart:set", (_event, enabled) => setAutoStartState(enabled));
+ipcMain.handle("window:minimize", (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+  if (win) {
+    win.minimize();
+  }
+});
+ipcMain.handle("window:close", (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+  if (win) {
+    win.close();
+  }
+});
 
 app.whenReady().then(() => {
   createMainWindow();

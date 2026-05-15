@@ -9,6 +9,8 @@ contextBridge.exposeInMainWorld("packyBalance", {
   openSite: () => ipcRenderer.invoke("balance:open-site"),
   getAutoStart: () => ipcRenderer.invoke("autostart:get"),
   setAutoStart: (enabled) => ipcRenderer.invoke("autostart:set", enabled),
+  minimizeWindow: () => ipcRenderer.invoke("window:minimize"),
+  closeWindow: () => ipcRenderer.invoke("window:close"),
   onBalanceUpdate: (callback) => {
     const listener = (_event, state) => callback(state);
     ipcRenderer.on("balance:update", listener);
